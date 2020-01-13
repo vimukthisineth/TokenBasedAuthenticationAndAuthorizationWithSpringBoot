@@ -22,7 +22,6 @@ public class TransactionFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = httpServletRequest.getHeader("Token");
         String path = httpServletRequest.getRequestURI();
-        System.out.println(path);
         if ("/signup".equals(path) || "/login".equals(path)){
             filterChain.doFilter(servletRequest, servletResponse);
         }else {
