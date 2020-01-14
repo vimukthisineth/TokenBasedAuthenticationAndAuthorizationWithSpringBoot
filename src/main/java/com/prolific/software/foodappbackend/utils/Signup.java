@@ -1,26 +1,37 @@
-package com.prolific.software.foodappbackend.model;
+package com.prolific.software.foodappbackend.utils;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-public class UserAccount extends User {
-
+public class Signup {
+    private String username;
+    private String password;
     private String firstName;
     private String lastName;
-
     private String email;
 
-    public UserAccount() {
-    }
-
-    public UserAccount(String username, String password, String token, String firstName, String lastName, String email) {
-        super(username, password, token);
+    public Signup(String username, String password, String firstName, String lastName, String email) {
+        this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public Signup() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
