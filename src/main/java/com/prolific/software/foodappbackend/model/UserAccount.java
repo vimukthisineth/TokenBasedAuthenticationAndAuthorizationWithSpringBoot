@@ -1,9 +1,8 @@
 package com.prolific.software.foodappbackend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.prolific.software.foodappbackend.utils.UserTypes;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
 
 @Entity
 public class UserAccount extends User {
@@ -13,14 +12,17 @@ public class UserAccount extends User {
 
     private String email;
 
+    private UserTypes userType;
+
     public UserAccount() {
     }
 
-    public UserAccount(String username, String password, String token, String firstName, String lastName, String email) {
+    public UserAccount(String username, String password, String token, String firstName, String lastName, String email, UserTypes userType) {
         super(username, password, token);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userType = userType;
     }
 
     public String getFirstName() {
@@ -45,5 +47,13 @@ public class UserAccount extends User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserTypes getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserTypes userType) {
+        this.userType = userType;
     }
 }

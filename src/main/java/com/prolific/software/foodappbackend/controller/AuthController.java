@@ -42,7 +42,14 @@ public class AuthController {
         if (userAccountRepository.findByUsername(signup.getUsername()).size() > 0){
             return ResponseWrapper.failure();
         }else {
-            UserAccount user = new UserAccount(signup.getUsername(), signup.getPassword(), new RandomString().nextString(), signup.getFirstName(), signup.getLastName(), signup.getEmail());
+            UserAccount user = new UserAccount(signup.getUsername(),
+                    signup.getPassword(),
+                    new RandomString().nextString(),
+                    signup.getFirstName(),
+                    signup.getLastName(),
+                    signup.getEmail(),
+                    signup.getUserType()
+            );
             userAccountRepository.save(user);
             return ResponseWrapper.success(user);
         }

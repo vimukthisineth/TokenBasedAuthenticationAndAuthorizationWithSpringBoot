@@ -6,13 +6,15 @@ public class Signup {
     private String firstName;
     private String lastName;
     private String email;
+    private UserTypes userType;
 
-    public Signup(String username, String password, String firstName, String lastName, String email) {
+    public Signup(String username, String password, String firstName, String lastName, String email, UserTypes userType) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userType = userType;
     }
 
     public Signup() {
@@ -52,6 +54,14 @@ public class Signup {
 
     public String getEmail() {
         return email;
+    }
+
+    public UserTypes getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserTypes userType) {
+        this.userType = userType;
     }
 
     public void setEmail(String email) {
